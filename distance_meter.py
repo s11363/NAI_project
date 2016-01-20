@@ -14,7 +14,8 @@ class DistanceMeter:
     def distance(self, read_width):
         return (self.initial_edge_size * self.focal_length) / float(read_width)
 
-    def find_marker(self, frame):
+    @staticmethod
+    def find_marker(frame):
 
         dimensions = None
 
@@ -39,7 +40,8 @@ class DistanceMeter:
 
         return dimensions
 
-    def draw_marker(self, frame, dimensions, distance):
+    @staticmethod
+    def draw_marker(frame, dimensions, distance):
 
         (x, y, w, h) = dimensions
 
