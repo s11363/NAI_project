@@ -12,7 +12,7 @@ class DistanceMeter:
         self.focal_length = (width * self.initial_distance) / self.initial_edge_size
 
     def distance(self, read_width):
-        return (self.initial_edge_size * self.focal_length) / read_width
+        return (self.initial_edge_size * self.focal_length) / float(read_width)
 
     def find_marker(self, frame):
 
@@ -39,10 +39,12 @@ class DistanceMeter:
 
         return dimensions
 
-    def draw_marker(self, frame, dimensions):
+    def draw_marker(self, frame, dimensions, distance):
 
         (x, y, w, h) = dimensions
 
-        cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
+        cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 255), 3)
+        cv2.putText(frame, "%.2f" % distance, (frame.shape[1] - 200, frame.shape[0] - 20),
+                    cv2.FONT_HERSHEY_SIMPLEX, 2.0, (0, 0, 255), 3)
 
         return frame

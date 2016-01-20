@@ -16,7 +16,8 @@ while True:
         if dm.focal_length == 0:
             dm.setup(dimensions[2])
 
-        frame = dm.draw_marker(frame, dimensions)
+        distance = dm.distance(dimensions[2])
+        frame = dm.draw_marker(frame, dimensions, distance)
 
     cv2.imshow('frame', frame)
 
