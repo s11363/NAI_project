@@ -1,4 +1,5 @@
 import cv2
+import imutils
 from distance_meter import DistanceMeter
 
 cap = cv2.VideoCapture(0)
@@ -9,7 +10,10 @@ while True:
 
     ret, frame = cap.read()
 
-    dm.find_marker(frame)
+    dimensions = dm.find_marker(frame)
+
+    if dimensions is not None:
+        frame = dm.draw_marker(frame, dimensions)
 
     cv2.imshow('frame', frame)
 
