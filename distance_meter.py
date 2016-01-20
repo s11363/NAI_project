@@ -33,7 +33,7 @@ class DistanceMeter:
                 (x, y, w, h) = cv2.boundingRect(curves)
                 ratio = w / float(h)
 
-                if ratio > 0.9 and ratio < 1.1:
+                if 0.9 <= ratio <= 1.1:
                     dimensions = (x, y, w, h)
                     break
 
