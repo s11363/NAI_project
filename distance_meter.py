@@ -20,7 +20,7 @@ class DistanceMeter:
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         gray = cv2.blur(gray, (3, 3))
-        edge = cv2.Canny(gray, 55, 220)
+        edge = cv2.Canny(gray, 55, 190)
 
         (derp, cnts, _) = cv2.findContours(edge.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
         cnts = sorted(cnts, key=cv2.contourArea, reverse=True)

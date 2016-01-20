@@ -11,10 +11,12 @@ while True:
 
     dimensions = dm.find_marker(frame)
 
-    if dm.focal_length == 0:
-        dm.setup(dimensions[2])
+    if dimensions is not None:
 
-    frame = dm.draw_marker(frame, dimensions)
+        if dm.focal_length == 0:
+            dm.setup(dimensions[2])
+
+        frame = dm.draw_marker(frame, dimensions)
 
     cv2.imshow('frame', frame)
 
