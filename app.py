@@ -1,5 +1,4 @@
 import cv2
-import imutils
 from distance_meter import DistanceMeter
 
 cap = cv2.VideoCapture(0)
